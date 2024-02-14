@@ -1,0 +1,35 @@
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django + Tailwind CSS + Flowbite</title>
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+</head>
+
+<body class="bg-blue-50">
+  <header class="bg-blue-300 px-2 py-8">  
+    <nav class="flex space-x-4 items-center">
+      <a class="text-4xl" href="{% url 'snack_list' %}">Snacks</a>
+      
+    </nav>
+  </header>
+  <main>
+      <h1>List of snacks...</h1>
+      {% block content %}
+        <h2>List...</h2>
+      {% endblock content %}
+
+  </main>   
+</body>
+
+</html>
